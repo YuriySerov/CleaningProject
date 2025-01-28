@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Вход</title>
+    <link rel="stylesheet" href="/static/styles_auth.css" />
+  </head>
+  <body>
+    <div class="login-container">
+      <h2>Вход</h2>
+      <form id="login-form">
+        <div class="form-group">
+          <label for="username">Логин</label>
+          <input
+            type="text"
+            id="username"
+            name="username"
+            required
+            placeholder="Введите имя пользователя"
+          />
+        </div>
+        <div class="form-group">
+          <label for="password">Пароль</label>
+          <input
+            type="password"
+            id="password"
+            name="password"
+            required
+            placeholder="Введите ваш пароль"
+          />
+        </div>
+        <button type="submit" class="button">Авторизоваться</button>
+      </form>
+
+      <p>Нету аккаунта? <a href="/register">Зарегистрироваться</a></p>
+    </div>
+
+    <!-- Подключение внешнего JavaScript файла -->
+    <script src="/static/scripts_auth.js"></script>
+  </body>
+</html>

@@ -1,0 +1,522 @@
+/* Основные стили */
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f4;
+  color: #333;
+}
+
+header {
+  background: #0056b3;
+  color: #fff;
+  padding: 20px 0;
+  display: flex;
+  /* Включаем Flexbox */
+  justify-content: space-between;
+  /* Распределяем элементы с равными промежутками */
+  align-items: center;
+  /* Выравнивание элементов по вертикали */
+  padding-left: 20px;
+  /* Для отступа слева (если нужно) */
+  padding-right: 20px;
+  /* Для отступа справа (если нужно) */
+}
+
+
+h1 {
+  margin: 0;
+  font-size: 2.5em;
+  text-align: left;
+}
+
+.contact-info {
+  margin: 10px 0;
+}
+
+.contact-info ul {
+  list-style: none;
+  padding: 0;
+}
+
+.contact-info li {
+  display: inline;
+  margin: 0 15px;
+}
+
+.contact-info a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.container {
+  position: relative;
+  max-width: 100%;
+  margin: 20px 0;
+  padding: 20px;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.image {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+
+.image img {
+  max-width: 800px;
+  height: auto;
+}
+
+.text {
+  margin-bottom: 20px;
+}
+
+h2 {
+  color: #0056b3;
+}
+
+ul {
+  padding-left: 20px;
+}
+
+/* Модальные окна */
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 1000;
+  transition: opacity 0.3s ease;
+  overflow: auto;
+}
+
+.modal-content {
+  background-color: #fff;
+  margin: 15% auto;
+  padding: 30px;
+  width: 80%;
+  max-width: 500px;
+  border-radius: 10px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  position: relative;
+  animation: fadeIn 0.3s ease-out;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 24px;
+  color: red;
+  /* Красный цвет */
+  cursor: pointer;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.close:hover {
+  color: #cc0000;
+  /* Темно-красный при наведении */
+  transform: scale(1.2);
+  /* Увеличение крестика при наведении */
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 0px;
+  /* Уменьшено расстояние между полями */
+}
+
+form label {
+  font-size: 1em;
+  color: #333;
+}
+
+form input {
+  padding: 10px 15px;
+  /* Уменьшены отступы */
+  margin: 5px 0;
+  /* Уменьшен внешний отступ */
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  font-size: 1em;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+form input:focus {
+  border-color: #0056b3;
+  box-shadow: 0 0 5px rgba(0, 86, 179, 0.5);
+  outline: none;
+}
+
+form button {
+  padding: 10px 15px;
+  /* Уменьшены отступы */
+  background-color: #0056b3;
+  color: white;
+  font-size: 1em;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+form button:hover {
+  background-color: #004085;
+  transform: translateY(-2px);
+}
+
+form button:active {
+  transform: translateY(0);
+}
+
+/* Стиль для кнопки "Подробнее" */
+.details-button {
+  background-color: #28a745;
+  padding: 12px 20px;
+  color: white;
+  font-size: 1.1em;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.details-button:hover {
+  background-color: #218838;
+  transform: scale(1.05);
+}
+
+/* Стили для раздела услуг */
+#services-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: flex-start;
+}
+
+.service-item {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  width: 22%;
+  padding: 20px;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.service-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Кнопки */
+.button,
+.order-button,
+.details-button {
+  background-color: #007bff;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  text-decoration: none;
+  font-size: 16px;
+  transition: background-color 0.3s, transform 0.2s;
+  display: inline-block;
+  margin: 10px 0;
+}
+
+.button:hover,
+.order-button:hover,
+.details-button:hover {
+  background-color: #0056b3;
+  transform: scale(1.05);
+}
+
+/* Контейнер для кнопок */
+.button-container {
+  background: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 20px;
+  margin: 20px 0;
+  text-align: center;
+}
+
+.auth-button {
+  background-color: #28a745;
+  padding: 12px 20px;
+  color: #fff;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.auth-button:hover {
+  background-color: #218838;
+  transform: scale(1.05);
+}
+
+/* Стили для карты */
+.map iframe {
+  border: 0;
+  border-radius: 8px;
+  width: 100%;
+  height: 450px;
+}
+
+/* Стили для адаптивности */
+@media (max-width: 768px) {
+  #services-container {
+    justify-content: center;
+  }
+
+  .service-item {
+    width: 48%;
+  }
+
+  .employee-card {
+    width: 48%;
+  }
+}
+
+@media (max-width: 480px) {
+  .service-item {
+    width: 100%;
+  }
+
+  .employee-card {
+    width: 100%;
+  }
+}
+
+/* Стили для раздела сотрудников */
+#employees-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: flex-start;
+}
+
+.employee-card {
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  width: 22%;
+  padding: 20px;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.employee-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.employee-photo {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 10px;
+}
+
+.employee-name {
+  font-weight: bold;
+}
+
+.employee-position {
+  color: #777;
+}
+
+.service {
+  background-color: #9cbef8;
+  /* Голубой цвет */
+  border-radius: 15px;
+  /* Радиус скругления углов */
+  padding: 20px;
+  /* Отступы внутри прямоугольника */
+  color: white;
+  /* Цвет текста */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  /* Легкая тень для выделения */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  /* Плавное изменение масштаба и тени */
+}
+
+.service:hover {
+  transform: scale(1.05);
+  /* Увеличение элемента на 5% */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  /* Усиленная тень при наведении */
+}
+
+.employee {
+  background-color: #9cbef8;
+  /* Голубой цвет */
+  border-radius: 15px;
+  /* Радиус скругления углов */
+  padding: 20px;
+  /* Отступы внутри прямоугольника */
+  color: white;
+  /* Цвет текста */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  /* Легкая тень для выделения */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  /* Плавная анимация */
+}
+
+.employee:hover {
+  transform: scale(1.05);
+  /* Увеличение элемента на 5% */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  /* Усиленная тень при наведении */
+}
+
+/* Модальные окна */
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 1000;
+  transition: opacity 0.3s ease;
+  overflow: auto;
+}
+
+.modal-content {
+  background-color: #fff;
+  margin: 15% auto;
+  padding: 30px;
+  width: 80%;
+  max-width: 500px;
+  border-radius: 10px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  position: relative;
+  animation: fadeIn 0.3s ease-out;
+}
+
+.close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 24px;
+  color: red;
+  cursor: pointer;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.close:hover {
+  color: #cc0000;
+  transform: scale(1.2);
+}
+
+/* Основные стили для формы */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+form label {
+  font-size: 1em;
+  color: #333;
+}
+
+form input,
+form select {
+  padding: 10px 15px;
+  margin: 5px 0;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  font-size: 1em;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+form input:focus,
+form select:focus {
+  border-color: #0056b3;
+  box-shadow: 0 0 5px rgba(0, 86, 179, 0.5);
+  outline: none;
+}
+
+form button {
+  padding: 10px 15px;
+  background-color: #0056b3;
+  color: white;
+  font-size: 1em;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+form button:hover {
+  background-color: #004085;
+  transform: translateY(-2px);
+}
+
+form button:active {
+  transform: translateY(0);
+}
+
+/* Стили для кнопки "Отправить услуги на email" */
+#send-email-button {
+  padding: 10px 20px;
+  background-color: #60c865;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+#send-email-button:hover {
+  background-color: #4caf50;
+}
+
+/* Стили для услуг */
+#services-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: flex-start;
+}
+
+.service-item {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  width: 22%;
+  padding: 20px;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.service-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}

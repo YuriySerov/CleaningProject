@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Регистрация</title>
+    <link rel="stylesheet" href="/static/styles_auth.css" />
+  </head>
+  <body>
+    <div class="register-container">
+      <h2>Регистрация</h2>
+      <form id="register-form">
+        <div class="form-group">
+          <label for="username">Логин</label>
+          <input
+            type="text"
+            id="username"
+            name="username"
+            required
+            placeholder="Введите логин"
+          />
+        </div>
+        <div class="form-group">
+          <label for="password">Пароль</label>
+          <input
+            type="password"
+            id="password"
+            name="password"
+            required
+            placeholder="Введите пароль"
+          />
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            placeholder="Введите email"
+          />
+        </div>
+        <button type="submit" class="button">Зарегистрироваться</button>
+      </form>
+
+      <!-- Ссылка на страницу входа -->
+      <p>Уже есть аккаунт? <a href="/login">Войти</a></p>
+    </div>
+    <script src="/static/scripts_register.js"></script>
+  </body>
+</html>

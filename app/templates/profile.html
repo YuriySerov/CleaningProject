@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Профиль пользователя</title>
+    <link rel="stylesheet" href="static/styles_profile.css" />
+  </head>
+  <body>
+    <header>
+      <nav class="nav-container">
+        <a href="/" class="back-button">← Назад на главную</a>
+      </nav>
+      <h1>Профиль</h1>
+    </header>
+
+    <div class="container">
+      <div class="old-info">
+        <p>
+          <strong>Ваш логин:</strong> <span id="username">{{ username }}</span>
+        </p>
+        <p>
+          <strong>Ваша почта:</strong>
+          <span id="user-email">{{ user_email }}</span>
+        </p>
+      </div>
+      <form id="profile-form">
+        <label for="email">Новый email:</label>
+        <input
+          type="email"
+          id="email"
+          name="email"
+          placeholder="Введите новый адрес электронной почты"
+        /><br />
+
+        <label for="password">Новый пароль:</label>
+        <input
+          type="password"
+          id="password"
+          name="password"
+          placeholder="Введите новый пароль"
+        /><br />
+
+        <button type="submit" class="button">Сохранить изменения</button>
+      </form>
+    </div>
+    <div class="container">
+      <h2>Ваши заказы</h2>
+      <table id="orders-table" class="orders-table">
+        <thead>
+          <tr>
+            <th>Имя</th>
+            <th>Фамилия</th>
+            <th>Телефон</th>
+            <th>Адрес</th>
+            <th>Услуга</th>
+            <th>Цена</th>
+            <th>Дата заказа</th>
+            <th>Статус</th>
+            <th>Действие</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Здесь будут добавлены строки с заказами -->
+        </tbody>
+      </table>
+    </div>
+
+    <script src="/static/scripts_profile.js"></script>
+  </body>
+</html>

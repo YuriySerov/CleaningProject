@@ -1,0 +1,667 @@
+/* Общие стили для страницы администратора */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: column;
+    background-color: #e7f0ff;
+}
+
+/* Стили для header */
+header {
+    width: 100%;
+    background-color: #0056b3;
+    padding: 20px 0;
+    color: white;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+}
+
+.header-buttons button {
+    margin-left: 10px;
+}
+
+/* Стили для кнопок */
+.button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.button:hover {
+    background-color: #0056b3;
+}
+
+.button-back {
+    background-color: #2196F3;
+}
+
+.button-back:hover {
+    background-color: #0b7dda;
+}
+
+.button-logout {
+    background-color: #f44336;
+}
+
+.button-logout:hover {
+    background-color: #d32f2f;
+}
+
+/* Кнопки редактирования и удаления */
+.button-edit {
+    background-color: #4caf50;
+    /* Зеленая кнопка редактирования */
+    color: white;
+}
+
+.button-edit:hover {
+    background-color: #388e3c;
+    /* Темно-зеленая при наведении */
+}
+
+.button-delete {
+    background-color: #f44336;
+    /* Красная кнопка удаления */
+    color: white;
+}
+
+.button-delete:hover {
+    background-color: #d32f2f;
+    /* Темно-красная при наведении */
+}
+
+/* Основной контент */
+.container {
+    width: 100%;
+    max-width: 1450px;
+    /* Ограничиваем максимальную ширину */
+    padding: 30px;
+    border: 1px solid #b3d7ff;
+    border-radius: 10px;
+    background-color: white;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    margin: 0 auto;
+    /* Центрируем по горизонтали */
+    margin-top: 30px;
+    /* Отступ сверху */
+}
+
+h2 {
+    text-align: center;
+    color: #0056b3;
+    margin-bottom: 20px;
+}
+
+button:disabled {
+    background-color: #b3d7ff;
+    cursor: not-allowed;
+}
+
+/* Стили для таблицы пользователей */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    /* Убирает двойные границы между ячейками */
+    margin-top: 20px;
+}
+
+td button {
+    margin-right: 10px;
+    /* Отступ между кнопками */
+}
+
+th,
+td {
+    padding: 12px 15px;
+    /* Отступы в ячейках */
+    text-align: left;
+    /* Выравнивание текста по левому краю */
+    border-bottom: 1px solid #ddd;
+    /* Легкая линия разделения между строками */
+}
+
+th {
+    background-color: #0056b3;
+    /* Темно-голубой фон для заголовков */
+    color: white;
+    font-size: 18px;
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+    /* Светло-серый фон для четных строк */
+}
+
+tr:hover {
+    background-color: #ddd;
+    /* Светло-серый фон для строки при наведении */
+}
+
+button {
+    padding: 6px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+/* Стили для поля поиска */
+.search-container {
+    margin-top: 20px;
+    /* Отступ сверху для перемещения поля ниже */
+    text-align: center;
+    /* Центрируем поле */
+}
+
+#search-input-user {
+    width: 300px;
+    /* Задаем ширину поля */
+    padding: 10px;
+    /* Внутренний отступ для удобства */
+    font-size: 16px;
+    /* Устанавливаем размер шрифта */
+    border: 1px solid #ccc;
+    /* Легкая граница */
+    border-radius: 5px;
+    /* Скругленные углы */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    /* Тень для поля поиска */
+    outline: none;
+    /* Убираем обводку при фокусе */
+    transition: border-color 0.3s, box-shadow 0.3s;
+    /* Плавное изменение при фокусе */
+}
+
+#search-input-user:focus {
+    border-color: #007bff;
+    /* Цвет границы при фокусе */
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+    /* Тень при фокусе */
+}
+
+#search-input-services {
+    width: 300px;
+    /* Задаем ширину поля */
+    padding: 10px;
+    /* Внутренний отступ для удобства */
+    font-size: 16px;
+    /* Устанавливаем размер шрифта */
+    border: 1px solid #ccc;
+    /* Легкая граница */
+    border-radius: 5px;
+    /* Скругленные углы */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    /* Тень для поля поиска */
+    outline: none;
+    /* Убираем обводку при фокусе */
+    transition: border-color 0.3s, box-shadow 0.3s;
+    /* Плавное изменение при фокусе */
+}
+
+#search-input-services:focus {
+    border-color: #007bff;
+    /* Цвет границы при фокусе */
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+    /* Тень при фокусе */
+}
+
+#search-input-order {
+    width: 300px;
+    /* Задаем ширину поля */
+    padding: 10px;
+    /* Внутренний отступ для удобства */
+    font-size: 16px;
+    /* Устанавливаем размер шрифта */
+    border: 1px solid #ccc;
+    /* Легкая граница */
+    border-radius: 5px;
+    /* Скругленные углы */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    /* Тень для поля поиска */
+    outline: none;
+    /* Убираем обводку при фокусе */
+    transition: border-color 0.3s, box-shadow 0.3s;
+    /* Плавное изменение при фокусе */
+}
+
+#search-input-order:focus {
+    border-color: #007bff;
+    /* Цвет границы при фокусе */
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+    /* Тень при фокусе */
+}
+
+#search-input-reviews {
+    width: 300px;
+    /* Задаем ширину поля */
+    padding: 10px;
+    /* Внутренний отступ для удобства */
+    font-size: 16px;
+    /* Устанавливаем размер шрифта */
+    border: 1px solid #ccc;
+    /* Легкая граница */
+    border-radius: 5px;
+    /* Скругленные углы */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    /* Тень для поля поиска */
+    outline: none;
+    /* Убираем обводку при фокусе */
+    transition: border-color 0.3s, box-shadow 0.3s;
+    /* Плавное изменение при фокусе */
+}
+
+#search-input-reviews:focus {
+    border-color: #007bff;
+    /* Цвет границы при фокусе */
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+    /* Тень при фокусе */
+}
+
+
+#search-input-employee {
+    width: 300px;
+    /* Задаем ширину поля */
+    padding: 10px;
+    /* Внутренний отступ для удобства */
+    font-size: 16px;
+    /* Устанавливаем размер шрифта */
+    border: 1px solid #ccc;
+    /* Легкая граница */
+    border-radius: 5px;
+    /* Скругленные углы */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    /* Тень для поля поиска */
+    outline: none;
+    /* Убираем обводку при фокусе */
+    transition: border-color 0.3s, box-shadow 0.3s;
+    /* Плавное изменение при фокусе */
+}
+
+#search-input-employee:focus {
+    border-color: #007bff;
+    /* Цвет границы при фокусе */
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+    /* Тень при фокусе */
+}
+
+.search-container input::placeholder {
+    color: #777;
+    /* Цвет текста подсказки */
+    font-style: italic;
+    /* Курсив для подсказки */
+}
+
+/* Модальные окна */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 1000;
+    transition: opacity 0.3s ease;
+    overflow: auto;
+}
+
+.modal-content {
+    background-color: #fff;
+    margin: 15% auto;
+    padding: 30px;
+    width: 80%;
+    max-width: 500px;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    position: relative;
+    animation: fadeIn 0.3s ease-out;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 24px;
+    color: red;
+    /* Красный цвет */
+    cursor: pointer;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.close:hover {
+    color: #cc0000;
+    /* Темно-красный при наведении */
+    transform: scale(1.2);
+    /* Увеличение крестика при наведении */
+}
+
+/* Основные стили для формы */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    /* Уменьшено расстояние между полями */
+}
+
+form label {
+    font-size: 1em;
+    color: #333;
+}
+
+form input {
+    padding: 10px 15px;
+    /* Уменьшены отступы */
+    margin: 5px 0;
+    /* Уменьшен внешний отступ */
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    font-size: 1em;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+form input:focus {
+    border-color: #0056b3;
+    box-shadow: 0 0 5px rgba(0, 86, 179, 0.5);
+    outline: none;
+}
+
+form button {
+    padding: 10px 15px;
+    /* Уменьшены отступы */
+    background-color: #0056b3;
+    color: white;
+    font-size: 1em;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+form button:hover {
+    background-color: #004085;
+    transform: translateY(-2px);
+}
+
+form button:active {
+    transform: translateY(0);
+}
+
+/* Стили для кнопки "Подробнее" */
+.details-button {
+    background-color: #28a745;
+    padding: 12px 20px;
+    color: white;
+    font-size: 1.1em;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.details-button:hover {
+    background-color: #218838;
+    transform: scale(1.05);
+}
+
+/* Стили для раздела услуг */
+#services-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: flex-start;
+}
+
+.service-item {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    width: 22%;
+    padding: 20px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.service-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Стили для раздела сотрудников */
+#employees-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: flex-start;
+}
+
+.employee-card {
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    width: 22%;
+    padding: 20px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.employee-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.employee-photo {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 10px;
+}
+
+.employee-name {
+    font-weight: bold;
+}
+
+.employee-position {
+    color: #777;
+}
+
+.service {
+    background-color: #9cbef8;
+    /* Голубой цвет */
+    border-radius: 15px;
+    /* Радиус скругления углов */
+    padding: 20px;
+    /* Отступы внутри прямоугольника */
+    color: white;
+    /* Цвет текста */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    /* Легкая тень для выделения */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    /* Плавное изменение масштаба и тени */
+}
+
+.service:hover {
+    transform: scale(1.05);
+    /* Увеличение элемента на 5% */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    /* Усиленная тень при наведении */
+}
+
+.employee {
+    background-color: #9cbef8;
+    /* Голубой цвет */
+    border-radius: 15px;
+    /* Радиус скругления углов */
+    padding: 20px;
+    /* Отступы внутри прямоугольника */
+    color: white;
+    /* Цвет текста */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    /* Легкая тень для выделения */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    /* Плавная анимация */
+}
+
+.employee:hover {
+    transform: scale(1.05);
+    /* Увеличение элемента на 5% */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    /* Усиленная тень при наведении */
+}
+
+/* Стили для адаптивности */
+@media (max-width: 768px) {
+    #services-container {
+        justify-content: center;
+    }
+
+    .service-item {
+        width: 48%;
+    }
+
+    .employee-card {
+        width: 48%;
+    }
+}
+
+@media (max-width: 480px) {
+    .service-item {
+        width: 100%;
+    }
+
+    .employee-card {
+        width: 100%;
+    }
+}
+
+/* Стили для элемента с ID role */
+#role {
+    display: inline-block;
+    padding: 8px 15px;
+    font-size: 16px;
+    font-weight: bold;
+    color: white;
+    border-radius: 20px;
+    background-color: #007bff;
+    /* Голубой цвет */
+    text-align: center;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    /* Легкая тень */
+}
+
+/* Эффект при наведении */
+#role:hover {
+    transform: scale(1.05);
+    /* Легкое увеличение */
+    background-color: #0056b3;
+    /* Темно-голубой цвет */
+}
+
+/* Дополнительные стили для разных ролей (например, админ, пользователь) */
+#role.admin {
+    background-color: #28a745;
+    /* Зеленый для администратора */
+}
+
+#role.user {
+    background-color: #ffc107;
+    /* Желтый для пользователя */
+}
+
+#role.moderator {
+    background-color: #17a2b8;
+    /* Синий для модератора */
+}
+
+#role.guest {
+    background-color: #6c757d;
+    /* Серый для гостя */
+}
+
+
+#status {
+    display: inline-block;
+    padding: 8px 15px;
+    font-size: 16px;
+    font-weight: bold;
+    color: white;
+    border-radius: 20px;
+    background-color: #007bff;
+    /* Голубой цвет */
+    text-align: center;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    /* Легкая тень */
+}
+
+/* Эффект при наведении */
+#status:hover {
+    transform: scale(1.05);
+    /* Легкое увеличение */
+    background-color: #0056b3;
+    /* Темно-голубой цвет */
+}
+
+/* Дополнительные стили для разных ролей (например, админ, пользователь) */
+#status.admin {
+    background-color: #28a745;
+    /* Зеленый для администратора */
+}
+
+#status.user {
+    background-color: #ffc107;
+    /* Желтый для пользователя */
+}
+
+#status.moderator {
+    background-color: #17a2b8;
+    /* Синий для модератора */
+}
+
+#role.guest {
+    background-color: #6c757d;
+    /* Серый для гостя */
+}
+
+/* Пример с анимацией для показа */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+#role {
+    animation: fadeIn 0.5s ease-out;
+}

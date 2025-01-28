@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Административная панель</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.maskedinput/1.4.1/jquery.maskedinput.min.js"></script>
+    <link rel="stylesheet" href="/static/styles_admin.css" />
+  </head>
+  <body>
+    <header>
+      <div class="header-container">
+        <h1>Административная панель</h1>
+        <button class="button button-logout" onclick="logout()">Выход</button>
+      </div>
+    </header>
+
+    <div class="container">
+      <h2>Пользователи</h2>
+
+      <!-- Кнопка для открытия модального окна добавления пользователя -->
+      <button class="button" onclick="showUserModal('user-modal')">
+        Добавить пользователя
+      </button>
+
+      <!-- Контейнер для поиска с отступом -->
+      <div class="search-container">
+        <input
+          type="text"
+          id="search-input-user"
+          placeholder="Поиск по имени или email"
+          oninput="filterUsers()"
+        />
+      </div>
+
+      <!-- Модальное окно для добавления/редактирования пользователя -->
+      <div id="user-modal" class="modal">
+        <div class="modal-content">
+          <span class="close">&times;</span>
+          <!-- Кнопка закрытия -->
+          <h3 id="form-title-user">Добавить пользователя</h3>
+          <form id="form-user">
+            <div class="form-group">
+              <label for="username">Имя пользователя</label>
+              <input type="text" id="username" name="username" placeholder="Введите имя пользователя" required />
+            </div>
+            <div class="form-group">
+              <label for="password">Пароль</label>
+              <input type="password" id="password" name="password" placeholder="Введите пароль" required />
+            </div>
+            <div class="form-group">
+              <label for="email">Электронная почта</label>
+              <input type="email" id="email" name="email" placeholder="Введите Email" />
+            </div>
+            <div class="form-group">
+              <label for="role">Роль</label>
+              <select id="role" name="role" required>
+                <option value="1">Пользователь</option>
+                <option value="2">Администратор</option>
+              </select>
+            </div>
+            <button type="submit" class="button">Сохранить</button>
+            <button
+              type="button"
+              class="button"
+              onclick="closeModal('user-modal')"
+            >
+              Отменить
+            </button>
+          </form>
+        </div>
+      </div>
+
+      <!-- Таблица для вывода пользователей -->
+      <table id="users-table" border="1" class="table">
+        <thead>
+          <tr>
+            <th>Имя пользователя</th>
+            <th>Электронная почта</th>
+            <th>Роль</th>
+            <th>Действия</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Здесь будут отображаться пользователи -->
+        </tbody>
+      </table>
+    </div>
+
+    <div class="container">
+      <h2>Услуги</h2>
+
+      <!-- Кнопка для открытия модального окна добавления услуги -->
+      <button class="button" onclick="showServiceModal('service-modal')">
+        Добавить услугу
+      </button>
+
+      <!-- Контейнер для поиска с отступом -->
+      <div class="search-container">
+        <input
+          type="text"
+          id="search-input-services"
+          placeholder="Поиск по названию или описанию"
+          oninput="filterServices()"
+        />
+      </div>
+
+      <!-- Модальное окно для добавления/редактирования услуги -->
+      <div id="service-modal" class="modal" style="display: none">
+        <div class="modal-content">
+          <span class="close" onclick="closeModal('service-modal')"
+            >&times;</span
+          >
+          <h3 id="form-title-services">Добавить услугу</h3>
+          <form id="form-services">
+            <div class="form-group">
+              <label for="service-name">Название услуги</label>
+              <input
+                type="text"
+                id="service-name"
+                name="service-name"
+                required
+                placeholder="Введите название услуги"
+              />
+            </div>
+            <div class="form-group">
+              <label for="description">Описание услуги</label>
+              <textarea id="description" name="description" placeholder="Опишите услугу"></textarea>
+            </div>
+            <div class="form-group">
+              <label for="price">Цена услуги</label>
+              <input type="number" id="price" name="price" step="0.01" placeholder="Введите цену за ч/м^2" />
+            </div>
+            <div class="form-group">
+              <label for="duration">Длительность услуги</label>
+              <input type="text" id="duration" name="duration" placeholder="00:00:00" />
+            </div>
+            <button type="submit" class="button">Сохранить</button>
+            <button
+              type="button"
+              class="button"
+              onclick="closeModal('service-modal')"
+            >
+              Отменить
+            </button>
+          </form>
+        </div>
+      </div>
+
+      <!-- Таблица для вывода услуг -->
+      <table id="services-table" border="1" class="table">
+        <thead>
+          <tr>
+            <th>Название услуги</th>
+            <th>Описание</th>
+            <th>Цена</th>
+            <th>Длительность</th>
+            <th>Действия</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Здесь будут отображаться услуги -->
+        </tbody>
+      </table>
+    </div>
+
+    <div class="container">
+      <h2>Отзывы</h2>
+    
+      <!-- Контейнер для поиска отзывов с отступом -->
+      <div class="search-container">
+        <input
+          type="text"
+          id="search-input-reviews"
+          placeholder="Поиск по рейтингу или комментарию"
+          oninput="filterReviews()"
+        />
+      </div>
+    
+      <!-- Модальное окно для редактирования отзыва -->
+      <div id="review-modal" class="modal" style="display: none">
+          <div class="modal-content">
+            <span class="close" onclick="closeModal('review-modal')">&times;</span>
+            <h3 id="form-title-reviews">Редактировать отзыв</h3>
+            <form id="form-reviews">
+              <div class="form-group">
+                <label for="rating">Рейтинг (1-5)</label>
+                <input type="number" id="rating" name="rating" min="1" max="5" required />
+              </div>
+              <div class="form-group">
+                <label for="comment">Комментарий</label>
+                <textarea id="comment" name="comment" required></textarea>
+              </div>
+              <button type="submit" class="button">Сохранить</button>
+              <button type="button" class="button" onclick="closeModal('review-modal')">
+                Отменить
+              </button>
+            </form>
+          </div>
+        </div>
+      
+        <!-- Таблица для отображения отзывов -->
+        <table id="reviews-table" class="table" border="1">
+          <thead>
+            <tr>
+              <th>Услуга</th>
+              <th>Рейтинг</th>
+              <th>Дата</th>
+              <th>Комментарий</th>
+              <th>Действия</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- Здесь будут отображаться отзывы -->
+          </tbody>
+        </table>
+      </div>
+
+      <div class="container">
+        <h2>Заказы</h2>
+        <!-- Контейнер для поиска с отступом -->
+          <div class="search-container">
+            <input
+                type="text"
+                id="search-input-order"
+                placeholder="Поиск по статусу или фамилии, или услуге"
+                oninput="filterOrders()"
+            />
+          </div>
+
+          <!-- Модальное окно для редактирования заказа -->
+          <div id="order-modal" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal('order-modal')">&times;</span>
+                <h3 id="form-title-order">Редактировать заказ</h3>
+                <form id="form-order">
+                    <div class="form-group">
+                        <label for="status">Статус</label>
+                        <select id="status" name="status" required>
+                            <option value="Новый">Новый</option>
+                            <option value="В обработке">В обработке</option>
+                            <option value="Завершен">Завершен</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="button">Сохранить</button>
+                    <button type="button" class="button" onclick="closeModal('order-modal')">Отменить</button>
+                </form>
+            </div>
+          </div>
+
+                <!-- Таблица для вывода заказов -->
+                <!-- Таблица для вывода заказов -->
+          <table id="orders-table" border="1" class="table">
+            <thead>
+                <tr>
+                    <th>Дата заказа</th>
+                    <th>Статус</th>
+                    <th>Имя клиента</th>
+                    <th>Фамилия клиента</th>
+                    <th>Адрес</th>
+                    <th>Номер телефона</th>
+                    <th>Услуга</th>
+                    <th>Действия</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Здесь будут отображаться заказы -->
+            </tbody>
+          </table>
+      </div>
+
+      <div class="container">
+        <h2>Сотрудники</h2>
+      
+        <!-- Кнопка для открытия модального окна добавления сотрудника -->
+        <button class="button" onclick="showEmployeeModal('employee-modal')">
+          Добавить сотрудника
+        </button>
+      
+        <!-- Контейнер для поиска с отступом -->
+        <div class="search-container">
+          <input
+            type="text"
+            id="search-input-employee"
+            placeholder="Поиск по ФИ или должности"
+            oninput="filterEmployees()"
+          />
+        </div>
+      
+        <!-- Модальное окно для добавления/редактирования сотрудника -->
+        <div id="employee-modal" class="modal">
+          <div class="modal-content">
+            <span class="close" onclick="closeModal('employee-modal')">&times;</span>
+            <!-- Кнопка закрытия -->
+            <h3 id="form-title-employee">Добавить сотрудника</h3>
+            <form id="form-employee">
+              <div class="form-group">
+                <label for="first-name">Имя</label>
+                <input type="text" id="first-name" name="first_name" required placeholder="Введите имя" />
+              </div>
+              <div class="form-group">
+                <label for="last-name">Фамилия</label>
+                <input type="text" id="last-name" name="last_name" required placeholder="Введите фамилию" />
+              </div>
+              <div class="form-group">
+                <label for="position">Должность</label>
+                <input type="text" id="position" name="position" placeholder="Введите должность" />
+              </div>
+              <div class="form-group">
+                <label for="hire-date">Дата приема на работу</label>
+                <input type="date" id="hire-date" name="hire_date" />
+              </div>
+              <div class="form-group">
+                <label for="email">Электронная почта</label>
+                <input type="email" id="emailemployee" name="email" required placeholder="Введите Email"/>
+              </div>
+              <div class="form-group">
+                <label for="phone">Телефон</label>
+                <input type="text" id="phone" class="phone_mask" name="phone" placeholder="+375 (__) ___-__-__" />
+              </div>
+              <div class="form-group">
+                <label for="photo">Фото</label>
+                <input type="file" id="photo" name="photo" accept="image/*" />
+                <button type="button" class="button" onclick="resetPhoto()">Сбросить</button>
+              </div>
+              <button type="submit" class="button">Сохранить</button>
+              <button type="button" class="button" onclick="closeModal('employee-modal')">Отменить</button>
+            </form>
+          </div>
+        </div>
+      
+        <!-- Таблица для вывода сотрудников -->
+        <table id="employees-table" border="1" class="table">
+          <thead>
+            <tr>
+              <th>Имя</th>
+              <th>Фамилия</th>
+              <th>Должность</th>
+              <th>Дата приема</th>
+              <th>Email</th>
+              <th>Телефон</th>
+              <th>Фото</th>
+              <th>Действия</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- Здесь будут отображаться сотрудники -->
+          </tbody>
+        </table>
+      </div>
+      
+      
+
+  </div>
+    <script src="/static/scripts_admin_users.js"></script>
+    <script src="/static/scripts_admin_services.js"></script>
+    <script src="/static/scripts_admin_reviews.js"></script>
+    <script src="/static/scripts_admin_orders.js"></script>
+    <script src="/static/scripts_admin_employees.js"></script>
+    <script>
+      document.getElementById('duration').addEventListener('input', function (e) {
+        let value = e.target.value.replace(/[^0-9]/g, ''); // Удаляем все нечисловые символы
+        if (value.length > 2 && value.length <= 4) {
+          value = value.slice(0, 2) + ':' + value.slice(2);
+        } else if (value.length > 4) {
+          value = value.slice(0, 2) + ':' + value.slice(2, 4) + ':' + value.slice(4, 6);
+        }
+        e.target.value = value;
+      });
+    </script>
+    <script>
+      // Получаем элемент input для фото
+      const photoInput = document.getElementById('photo');
+    
+      photoInput.addEventListener('change', (event) => {
+        const file = event.target.files[0];
+        if (file) {
+          // Оставляем только имя файла и расширение
+          const fileName = file.name;
+          console.log('Выбран файл:', fileName);
+    
+          // Вы можете дополнительно обработать fileName, например, отправить его на сервер
+        }
+      });
+    </script>
+
+    <script>
+      function resetPhoto() {
+        const photoInput = document.getElementById('photo');
+        photoInput.value = ''; // Очистка выбранного файла
+        alert('Выбранное изображение сброшено.');
+      }
+    </script>
+
+  <script>
+    $(document).ready(function () {
+      $(".phone_mask").mask("+375 (99) 999-99-99");
+    });
+</script>
+  </body>
+  </body>
+</html>

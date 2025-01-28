@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.maskedinput/1.4.1/jquery.maskedinput.min.js"></script>
+    <title>Клининговая Компания</title>
+    <link rel="stylesheet" href="static/styles.css" />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header>
+      <h1>Клининговая Компания</h1>
+
+      <div class="contact-info">
+        <ul>
+          <li>
+            <u><a href="tel:+375291234567">Телефон: +375 (29) 123-45-67</a></u>
+          </li>
+          <li>
+            <u
+              ><a href="mailto:clining@gmail.com"
+                >Email: clining@gmail.com</a
+              ></u
+            >
+          </li>
+        </ul>
+      </div>
+      <div id="auth-container">
+        <!-- Остальной код, например, приветствие с именем и кнопкой выхода -->
+      </div>
+    </header>
+
+    <div class="container">
+      <div class="text">
+        <h2>Добро пожаловать!</h2>
+        <hr />
+
+        <h2>Почему выбирают нас:</h2>
+        <ul>
+          <li>Профессиональная команда с опытом</li>
+          <li>Индивидуальный подход к каждому клиенту</li>
+          <li>Гарантия качества и удовлетворенности</li>
+          <li>Использование экологически чистых средств</li>
+          <li>Гибкий график работы</li>
+        </ul>
+        <hr />
+
+        <h2>Самые частые услуги:</h2>
+        <ul>
+          <li>Уборка квартир и домов</li>
+          <li>Коммерческая уборка</li>
+          <li>Профессиональная уборка после ремонта</li>
+          <li>Уборка офисов</li>
+          <li>Услуги по чистке ковров и мебели</li>
+        </ul>
+      </div>
+      <div class="image">
+        <img src="/static/images/preview.jpg" alt="Услуги по уборке" />
+      </div>
+    </div>
+    <hr />
+
+    <div class="container">
+      <h2>Наши услуги</h2>
+      <div id="services-container">
+        <!-- Услуги будут добавляться сюда через JavaScript -->
+      </div>
+      <hr />
+      <button id="send-email-button">Отправить услуги на email</button>
+    </div>
+
+    <!-- Модальное окно для ввода email и выбора формата -->
+    <div id="email-modal" class="modal">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <h3>Отправка услуг на email</h3>
+        <form id="email-form">
+          <label for="email">Введите ваш email:</label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            required
+            placeholder="Введите Email"
+          />
+
+          <label for="format">Выберите формат документа:</label>
+          <select id="format" name="format" required>
+            <option value="pdf">PDF</option>
+            <option value="word">Word</option>
+            <option value="excel">Excel</option>
+          </select>
+          <hr />
+          <button type="submit">Отправить</button>
+        </form>
+      </div>
+    </div>
+
+    <hr />
+
+    <!-- Контейнер для сотрудников -->
+    <div class="container">
+      <h2>Наши сотрудники</h2>
+      <div id="employees-container" class="employees-grid">
+        <!-- Сотрудники будут добавляться сюда через JavaScript -->
+      </div>
+    </div>
+    <hr />
+    <!-- Модальное окно -->
+    <div id="details-modal" class="modal">
+      <div class="modal-content">
+        <span class="close" onclick="closeOrderModal()">&times;</span>
+        <!-- Крестик для закрытия -->
+        <!-- Содержимое модального окна -->
+      </div>
+    </div>
+
+    <!-- Модальное окно для оформления заказа -->
+    <div id="order-modal" class="modal">
+      <div class="modal-content">
+        <span class="close" onclick="closeOrderModal()">&times;</span>
+        <h3>Оформить заказ</h3>
+        <form id="order-form">
+          <label for="first-name">Имя:</label>
+          <input
+            type="text"
+            id="first-name"
+            name="first_name"
+            placeholder="Введите имя"
+            required
+          /><br />
+
+          <label for="last-name">Фамилия:</label>
+          <input
+            type="text"
+            id="last-name"
+            name="last_name"
+            placeholder="Введите фимилию"
+          /><br />
+
+          <label for="phone">Телефон:</label>
+          <input
+            type="tel"
+            id="phone"
+            name="phone"
+            class="phone_mask"
+            required
+            placeholder="+375 (__) ___-__-__"
+          />
+
+          <br />
+
+          <label for="address">Адрес:</label>
+          <input
+            type="text"
+            id="address"
+            name="address"
+            placeholder="Введите адрес"
+            required
+          /><br />
+
+          <button type="submit" class="button">Оформить заказ</button>
+        </form>
+      </div>
+    </div>
+
+    <div class="contact-section">
+      <h2>Контактная информация</h2>
+      <ul>
+        <li>Телефон: +375 (29) 123-45-67</li>
+        <li>Email: clining@gmail.com</li>
+        <li>Адрес: ул. Олега Кошевого 13 - 6, Минск, Минская область 220070</li>
+      </ul>
+      <hr />
+
+      <h2>Наша карта</h2>
+      <div class="map">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d75252.4074067155!2d27.4527942!3d53.8848681!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46dbcf7c66a52e3b%3A0x6f6de24ad6e5476d!2z0JrQu9C40L3QuNC90LPQvtCy0LDRjyDQutC-0LzQv9Cw0L3QuNGPIMKr0KfQuNGB0YLRi9C5INC60L7RgsK7!5e0!3m2!1sru!2sby!4v1733681266385!5m2!1sru!2sby"
+          width="600"
+          height="450"
+          style="border: 0"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+        >
+          width="600" height="450" style="border: 0" allowfullscreen=""
+          loading="lazy" >
+        </iframe>
+      </div>
+    </div>
+
+    <footer>
+      <div class="footer-container">
+        <p>&copy; 2024 Клининговая Компания</p>
+      </div>
+    </footer>
+    <script src="static/scripts.js"></script>
+    <script src="static/scripts_send_email.js"></script>
+
+    <script>
+      // Проверяем, авторизован ли пользователь
+      const username = localStorage.getItem("username");
+      const authContainer = document.getElementById("auth-container");
+
+      if (username) {
+        // Если пользователь авторизован, показываем приветствие и кнопку выхода
+        authContainer.innerHTML = `
+        <a href="/profile" id="profile-link" class="button">
+  <i class="fas fa-user"></i> ${username}
+</a>
+
+
+    <a href="#" id="logout-button" class="button">Выйти</a>
+
+  `;
+        // Обработчик выхода
+        document
+          .getElementById("logout-button")
+          .addEventListener("click", function () {
+            localStorage.removeItem("username"); // Удаляем имя пользователя
+            window.location.href = "/"; // Перенаправляем на главную страницу
+          });
+      } else {
+        // Если не авторизован, показываем кнопку авторизации
+        authContainer.innerHTML = `
+          <a href="/login" class="auth-button">Авторизоваться</a>
+        `;
+      }
+    </script>
+    <script>
+      $(document).ready(function () {
+        $(".phone_mask").mask("+375 (99) 999-99-99");
+      });
+    </script>
+  </body>
+</html>
